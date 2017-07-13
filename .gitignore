@@ -1,0 +1,6 @@
+.Rhistory
+.Rproj*
+*.Rproj
+*.RData
+family.txt
+names.xlsx

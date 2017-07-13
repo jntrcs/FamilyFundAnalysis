@@ -1,6 +1,6 @@
 ##Things unaccounted for
 #Come home and go back out
-#current missionaries coming home
+
 
 
 family<-read.csv("family.csv")
@@ -125,7 +125,7 @@ start_time_sim<-function(dat, death ){
 
 
 
-nReps<-1
+nReps<-1000
 
 income_parents<-matrix(NA, nrow=nReps, ncol=18*12)
 income_total<-matrix(NA, nrow=nReps, ncol=18*12)
