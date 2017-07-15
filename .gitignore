@@ -4,3 +4,5 @@
 *.RData
 family.txt
 names.xlsx
+Simulations*
+.Rproj.user

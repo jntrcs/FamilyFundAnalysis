@@ -79,6 +79,9 @@ start_time_sim<-function(dat, death ){
   for (month in 1:nrow(cal))
   {
     current_date<-cal$month[month]
+    if (current_date==as.Date("2020-01-01")){
+      parent_contrib<-20
+    }
     if (current_date==death_when) payers=11
     
     ###Make missionary adjustments
@@ -125,7 +128,7 @@ start_time_sim<-function(dat, death ){
 
 
 
-nReps<-1000
+nReps<-400
 
 income_parents<-matrix(NA, nrow=nReps, ncol=18*12)
 income_total<-matrix(NA, nrow=nReps, ncol=18*12)
@@ -195,7 +198,7 @@ for (rep in 1:nReps)
  expenditures[rep,]<-full$calendar$total_expenditure
  income_parents[rep,]<-full$calendar$money_from_parents
  income_total[rep,]<-full$calendar$total_incoming
-  save(full, file=paste0("Simulations/Sim",rep))
+  save(full, file=paste0("Simulations2/Sim",rep))
 }            
 
 
