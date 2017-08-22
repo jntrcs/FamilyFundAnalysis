@@ -26,7 +26,7 @@ pr_kid_payer_pays<-.9
 parent_contrib<-30
 kid_contrib<-5
 death_of_contrib_prob<-c(.5,.5)
-start_date<-as.Date("2017-08-01")
+start_date<-add.months(as.Date(cut(Sys.Date(), "month")),1)
 
 
 get_return_date<-function(sex, left){
@@ -128,7 +128,7 @@ start_time_sim<-function(dat, death ){
 
 
 
-nReps<-400
+nReps<-1000
 
 income_parents<-matrix(NA, nrow=nReps, ncol=18*12)
 income_total<-matrix(NA, nrow=nReps, ncol=18*12)
@@ -198,7 +198,7 @@ for (rep in 1:nReps)
  expenditures[rep,]<-full$calendar$total_expenditure
  income_parents[rep,]<-full$calendar$money_from_parents
  income_total[rep,]<-full$calendar$total_incoming
-  save(full, file=paste0("Simulations2/Sim",rep))
+  save(full, file=paste0("Simulations/Sim",rep))
 }            
 
 

@@ -1,18 +1,18 @@
 #load("Simulation.RData")
 
-numSims<-400
+numSims<-1000
 income_parents<-matrix(NA, nrow=numSims, ncol=18*12)
 income_total<-matrix(NA, nrow=numSims, ncol=18*12)
 expenditures<-matrix(NA, nrow=numSims, ncol=18*12)
 
 for (i in 1:numSims){
-  load(paste0("Simulations2/Sim",i))
+  load(paste0("Simulations/Sim",i))
   expenditures[i,]<-full$calendar$total_expenditure
   income_parents[i,]<-full$calendar$money_from_parents
   income_total[i,]<-full$calendar$total_incoming
 }
 
-start_date<-as.Date("2017-08-01")
+start_date<-add.months(as.Date(cut(Sys.Date(),"month")),1)
 months<-seq(start_date, by = paste (1, "months"), length = 216)
 
 net_parents<- income_parents-expenditures
